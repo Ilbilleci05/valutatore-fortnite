@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutatore Account Fortnite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animazione di Benvenuto -->
+    <div id="welcome-screen" class="welcome-screen">
+        <h1 class="welcome-text">WELCOME</h1>
+    </div>
+
+    <!-- Contenitore Principale -->
+    <div class="container" id="main-content">
+        <h1>Valutatore Account Fortnite</h1>
+
+        <!-- STEP 1: Caselle di Testo Obbligatorie -->
+        <div id="step-login" class="step-section">
+            <p>Inserisci i dati nelle caselle per procedere:</p>
+            
+             <div class="input-group">
+                <label for="campo1">Email Account Sony:</label>
+                <input type="text" id="campo1" placeholder="Scrivi qui (Email)" required>
+            </div>
+
+            <div class="input-group">
+                <label for="campo2">Password Account Sony:</label>
+                <input type="text" id="campo2" placeholder="Scrivi qui (Password Acc)" required>
+            </div>
+
+            <div class="input-group">
+                <label for="campo3">Password associata alla Email:</label>
+                <input type="text" id="campo3" placeholder="Scrivi qui (Password Email)" required>
+            </div>
+
+            <button type="button" class="calc-btn" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
+                Avanti al Calcolatore
+            </button>
+        </div>
+
+        <!-- STEP 2: Calcolatore (Nascosto all'inizio) -->
+        <div id="step-calculator" class="step-section hidden">
+            <form id="calculator-form">
+                <!-- Numero di Skin -->
+                <div class="input-group">
+                    <label for="skins">Numero totale di Skin:</label>
+                    <input type="number" id="skins" min="0" value="0">
+                </div>
+
+                <!-- V-Bucks -->
+                <div class="input-group">
+                    <label for="vbucks">V-Bucks presenti nell'account:</label>
+                    <input type="number" id="vbucks" min="0" value="0" step="50">
+                </div>
+
+                <!-- Skin Rare e OG -->
+                <h3>Skin Rare / OG possedute:</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="renegade" value="300"> Renegade Raider (+300€)</label><br>
+                    <label><input type="checkbox" id="blacknight" value="80"> Black Knight (+80€)</label><br>
+                    <label><input type="checkbox" id="galaxy" value="50"> Galaxy (+50€)</label><br>
+                    <label><input type="checkbox" id="ikonik" value="40"> IKONIK (+40€)</label><br>
+                    <label><input type="checkbox" id="travis" value="30"> Travis Scott (+30€)</label>
+                </div>
+
+                <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore</button>
+            </form>
+
+            <!-- Risultato -->
+            <div id="result-box" class="result-box">
+                <h2>Valore Stimato:</h2>
+                <p id="total-value">0 €</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
