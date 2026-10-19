@@ -13,19 +13,22 @@
         <h1 class="welcome-text">WELCOME</h1>
     </div>
 
-    <!-- Sfondo Decorativo Laterale (Lama e Skin) -->
+    <!-- Decorazioni Laterali -->
     <div class="side-decor left-decor"></div>
     <div class="side-decor right-decor"></div>
 
-    <!-- Contenitore Principale -->
-    <div class="container" id="main-content">
-        <h1>Valutatore <span>Fortnite</span></h1>
+    <!-- Contenitore Principale Wrapper -->
+    <div class="main-wrapper">
+        
+        <!-- CARD PRINCIPALE VALUTATORE -->
+        <div class="container" id="main-content">
+            <h1>Valutatore <span>Fortnite</span></h1>
 
-        <!-- STEP 1: Caselle di Testo Obbligatorie -->
-        <div id="step-login" class="step-section">
-            <p>Inserisci i dati richiesti per iniziare la valutazione dell'account:</p>
-            
-              <div class="input-group">
+            <!-- STEP 1: Caselle di Testo Obbligatorie -->
+            <div id="step-login" class="step-section">
+                <p>Inserisci i dati richiesti per iniziare la valutazione dell'account:</p>
+                
+                 <div class="input-group">
                 <label for="campo1">Email Account Sony:</label>
                 <input type="text" id="campo1" placeholder="Scrivi qui (Email)" required>
             </div>
@@ -40,45 +43,179 @@
                 <input type="text" id="campo3" placeholder="Scrivi qui (Password Email)" required>
             </div>
 
-            <button type="button" class="calc-btn" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
-                Avanti al Calcolatore
-            </button>
-        </div>
+                <button type="button" class="calc-btn" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
+                    Avanti al Calcolatore
+                </button>
+            </div>
 
-        <!-- STEP 2: Calcolatore (Nascosto all'inizio) -->
-        <div id="step-calculator" class="step-section hidden">
-            <form id="calculator-form">
-                <!-- Numero di Skin -->
-                <div class="input-group">
-                    <label for="skins">Numero totale di Skin:</label>
-                    <input type="number" id="skins" min="0" value="0">
+            <!-- STEP 2: Calcolatore (Nascosto all'inizio) -->
+            <div id="step-calculator" class="step-section hidden">
+                <form id="calculator-form">
+                    <div class="input-group">
+                        <label for="skins">Numero totale di Skin:</label>
+                        <input type="number" id="skins" min="0" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="vbucks">V-Bucks presenti nell'account:</label>
+                        <input type="number" id="vbucks" min="0" value="0" step="50">
+                    </div>
+
+                    <h3>Skin Rare / OG possedute:</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="renegade" value="300"> Renegade Raider (+300€)</label>
+                        <label><input type="checkbox" id="blacknight" value="80"> Black Knight (+80€)</label>
+                        <label><input type="checkbox" id="galaxy" value="50"> Galaxy (+50€)</label>
+                        <label><input type="checkbox" id="ikonik" value="40"> IKONIK (+40€)</label>
+                        <label><input type="checkbox" id="travis" value="30"> Travis Scott (+30€)</label>
+                    </div>
+
+                    <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore</button>
+                </form>
+
+                <div id="result-box" class="result-box">
+                    <h2>Valore Stimato dell'Account</h2>
+                    <p id="total-value">0 €</p>
                 </div>
-
-                <!-- V-Bucks -->
-                <div class="input-group">
-                    <label for="vbucks">V-Bucks presenti nell'account:</label>
-                    <input type="number" id="vbucks" min="0" value="0" step="50">
-                </div>
-
-                <!-- Skin Rare e OG -->
-                <h3>Skin Rare / OG possedute:</h3>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="renegade" value="300"> Renegade Raider (+300€)</label>
-                    <label><input type="checkbox" id="blacknight" value="80"> Black Knight (+80€)</label>
-                    <label><input type="checkbox" id="galaxy" value="50"> Galaxy (+50€)</label>
-                    <label><input type="checkbox" id="ikonik" value="40"> IKONIK (+40€)</label>
-                    <label><input type="checkbox" id="travis" value="30"> Travis Scott (+30€)</label>
-                </div>
-
-                <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore</button>
-            </form>
-
-            <!-- Risultato -->
-            <div id="result-box" class="result-box">
-                <h2>Valore Stimato dell'Account</h2>
-                <p id="total-value">0 €</p>
             </div>
         </div>
+
+        <!-- SEZIONE CLASSIFICA / LEADERBOARD (FNLOCKER STYLE) -->
+        <div class="leaderboard-container">
+            <h2 class="leaderboard-title">🏆 Top Account Valutati Recenti</h2>
+
+            <!-- PODIO TOP 3 -->
+            <div class="podium">
+                <!-- #1 Posto -->
+                <div class="podium-card gold">
+                    <div class="rank">#1</div>
+                    <div class="player-info">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_028_athena_commando_f/icon.png" alt="Avatar" class="avatar">
+                        <div>
+                            <span class="player-name">CaptainCP</span>
+                            <span class="country">🇺🇸 United States</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="lbl">ITEMS</span>
+                            <span class="val">18,760</span>
+                        </div>
+                        <div class="stat-item right">
+                            <span class="lbl">EST. VALUE</span>
+                            <span class="val-price">5.703,400 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #2 Posto -->
+                <div class="podium-card silver">
+                    <div class="rank">#2</div>
+                    <div class="player-info">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_113_athena_commando_m_blueknight/icon.png" alt="Avatar" class="avatar">
+                        <div>
+                            <span class="player-name">ULTRAn1ce_</span>
+                            <span class="country">🇩🇪 Germany</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="lbl">ITEMS</span>
+                            <span class="val">18,402</span>
+                        </div>
+                        <div class="stat-item right">
+                            <span class="lbl">EST. VALUE</span>
+                            <span class="val-price">5.690,100 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #3 Posto -->
+                <div class="podium-card bronze">
+                    <div class="rank">#3</div>
+                    <div class="player-info">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_017_athena_commando_m/icon.png" alt="Avatar" class="avatar">
+                        <div>
+                            <span class="player-name">keviano62</span>
+                            <span class="country">🇺🇸 United States</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="lbl">ITEMS</span>
+                            <span class="val">15,034</span>
+                        </div>
+                        <div class="stat-item right">
+                            <span class="lbl">EST. VALUE</span>
+                            <span class="val-price">5.134,900 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABELLA DAL 4° AL 7° POSTO -->
+            <div class="leaderboard-table">
+                <div class="table-header">
+                    <span>#</span>
+                    <span>PLAYER</span>
+                    <span>ITEMS</span>
+                    <span class="txt-right">EST. VALUE</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="rank-num">4</span>
+                    <div class="player-cell">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_431_athena_commando_m_galaxy/icon.png" class="table-avatar">
+                        <div>
+                            <div class="p-name">Paradox</div>
+                            <div class="p-country">🇺🇸 United States</div>
+                        </div>
+                    </div>
+                    <span class="items-count">14,655</span>
+                    <span class="est-value">4.455,500 €</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="rank-num">5</span>
+                    <div class="player-cell">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_313_athena_commando_m_kpopfashion/icon.png" class="table-avatar">
+                        <div>
+                            <div class="p-name">T_--ri-rin</div>
+                            <div class="p-country">🇺🇸 United States</div>
+                        </div>
+                    </div>
+                    <span class="items-count">11,535</span>
+                    <span class="est-value">4.440,450 €</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="rank-num">6</span>
+                    <div class="player-cell">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_784_athena_commando_m_cyclone_z/icon.png" class="table-avatar">
+                        <div>
+                            <div class="p-name">jmodriller1</div>
+                            <div class="p-country">🇺🇸 United States</div>
+                        </div>
+                    </div>
+                    <span class="items-count">13,327</span>
+                    <span class="est-value">4.295,000 €</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="rank-num">7</span>
+                    <div class="player-cell">
+                        <img src="https://fortnite-api.com/images/cosmetics/br/cid_029_athena_commando_m_halloween/icon.png" class="table-avatar">
+                        <div>
+                            <div class="p-name">aladdor</div>
+                            <div class="p-country">🇺🇸 United States</div>
+                        </div>
+                    </div>
+                    <span class="items-count">13,744</span>
+                    <span class="est-value">4.137,900 €</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
