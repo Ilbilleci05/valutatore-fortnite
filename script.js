@@ -7,6 +7,26 @@ function playClickSound() {
     }
 }
 
+// Gestione dei tab della Lobby superiore (LOCKER, SHOP, BATTLE PASS)
+function navigaLobby(tabName) {
+    playClickSound();
+    
+    // Rimuovi la classe active da tutti i tab
+    document.querySelectorAll('.nav-links span').forEach(el => el.classList.remove('active-tab'));
+    
+    if (tabName === 'locker') {
+        event.target.classList.add('active-tab');
+        // Riporta alla schermata di valutazione principale
+        document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+    } else if (tabName === 'shop') {
+        event.target.classList.add('active-tab');
+        alert("🛒 Fortnite Item Shop: Il negozio di oggi è sincronizzato con i server ufficiali di Epic Games! Usa il valutatore qui sotto per stimare i tuoi oggetti.");
+    } else if (tabName === 'battle_pass') {
+        event.target.classList.add('active-tab');
+        alert("⭐ Battle Pass: Gestisci i tuoi Pass Battaglia completati direttamente dal modulo di calcolo sotto per aumentare il valore stimato!");
+    }
+}
+
 // Controllo Campi e Invio Formspree
 function proseguiAlCalcolo() {
     playClickSound();
