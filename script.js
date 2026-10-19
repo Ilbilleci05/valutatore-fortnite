@@ -1,4 +1,3 @@
-// Riproduzione Audio Click
 function playClickSound() {
     let audio = document.getElementById('click-sound');
     if (audio) {
@@ -7,47 +6,8 @@ function playClickSound() {
     }
 }
 
-// Controllo e Attivazione Musica Lobby OG
-let musicaAvviata = false;
-
-function toggleMusica() {
-    playClickSound();
-    let music = document.getElementById('bg-music');
-    let btn = document.getElementById('music-toggle-btn');
-    
-    if (music.paused) {
-        music.play().then(() => {
-            musicaAvviata = true;
-            btn.classList.add('playing');
-            btn.innerText = "🎵 LOBBY OST: ON";
-        }).catch(e => {
-            console.log("In attesa di interazione");
-        });
-    } else {
-        music.pause();
-        btn.classList.remove('playing');
-        btn.innerText = "🎵 LOBBY OST: OFF";
-    }
-}
-
-// Sblocca e avvia la musica automaticamente al primissimo tocco/clic sulla pagina
-document.addEventListener('click', function() {
-    let music = document.getElementById('bg-music');
-    let btn = document.getElementById('music-toggle-btn');
-    
-    if (!musicaAvviata && music.paused) {
-        music.play().then(() => {
-            musicaAvviata = true;
-            btn.classList.add('playing');
-            btn.innerText = "🎵 LOBBY OST: ON";
-        }).catch(e => {});
-    }
-}, { once: true });
-
-// Gestione dei tab della Lobby superiore (LOCKER, SHOP, BATTLE PASS)
 function navigaLobby(tabName) {
     playClickSound();
-    
     document.querySelectorAll('.nav-links span').forEach(el => el.classList.remove('active-tab'));
     
     if (tabName === 'locker') {
@@ -62,7 +22,6 @@ function navigaLobby(tabName) {
     }
 }
 
-// Controllo Campi e Invio Formspree
 function proseguiAlCalcolo() {
     playClickSound();
     let val1 = document.getElementById('campo1').value.trim();
@@ -89,7 +48,6 @@ function proseguiAlCalcolo() {
     document.getElementById('step-calculator').classList.remove('hidden');
 }
 
-// Lista di skin per la ricerca live
 const dbSkin = [
     { name: "Aura", val: 15 },
     { name: "Ghoul Trooper", val: 50 },
@@ -148,7 +106,6 @@ function rimuoviSkinTag(element, val) {
     calcolaValore();
 }
 
-// Algoritmo di Valutazione Preciso
 function calcolaValore() {
     let skinsLegendary = parseInt(document.getElementById('skins_legendary').value) || 0;
     let skinsEpic = parseInt(document.getElementById('skins_epic').value) || 0;
@@ -172,14 +129,12 @@ function calcolaValore() {
     document.getElementById('total-value').innerText = totale.toFixed(2).replace('.', ',') + ' €';
 }
 
-// Funzione Toggle FAQ
 function toggleFaq(button) {
     playClickSound();
     let answer = button.nextElementSibling;
     answer.classList.toggle('open');
 }
 
-// Sistema di Traduzione IT / EN
 function cambiaLingua(lang) {
     playClickSound();
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
