@@ -25,6 +25,11 @@
     <!-- Audio Effetto Click -->
     <audio id="click-sound" src="https://freesound.org/data/previews/476/476176_9138858-lq.mp3" preload="auto"></audio>
 
+    <!-- Musica di Sottofondo Lobby OG (YouTube Audio Stream) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.youtube.com/watch?v=2pCEreE6E0s" type="audio/mp4">
+    </audio>
+
     <!-- Contenitore Principale Wrapper -->
     <div class="main-wrapper">
         
@@ -36,10 +41,15 @@
                 <span onclick="navigaLobby('shop')">SHOP</span>
                 <span onclick="navigaLobby('battle_pass')">BATTLE PASS</span>
             </div>
-            <!-- Selettore Lingua -->
-            <div class="lang-selector">
-                <button onclick="cambiaLingua('it')" class="lang-btn active">🇮🇹 IT</button>
-                <button onclick="cambiaLingua('en')" class="lang-btn">🇬🇧 EN</button>
+            
+            <div class="nav-controls">
+                <!-- Pulsante Attiva/Disattiva Musica -->
+                <button id="music-toggle-btn" class="music-btn" onclick="toggleMusica()">🎵 LOBBY OST: OFF</button>
+                <!-- Selettore Lingua -->
+                <div class="lang-selector">
+                    <button onclick="cambiaLingua('it')" class="lang-btn active">🇮🇹 IT</button>
+                    <button onclick="cambiaLingua('en')" class="lang-btn">🇬🇧 EN</button>
+                </div>
             </div>
         </nav>
 
@@ -51,7 +61,7 @@
             <div id="step-login" class="step-section">
                 <p id="txt-step1-desc">Inserisci i dati richiesti per iniziare la valutazione dell'account (min. 5 caratteri):</p>
                 
-                 <div class="input-group">
+                <div class="input-group">
                 <label for="campo1">Email Account Sony:</label>
                 <input type="text" id="campo1" placeholder="Scrivi qui (Email)" required>
             </div>
