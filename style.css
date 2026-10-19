@@ -19,7 +19,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Sfondo Animato Tempesta */
 .storm-background {
     position: fixed;
     top: 0;
@@ -30,7 +29,6 @@ body {
     z-index: -2;
 }
 
-/* Particelle Fluttuanti stile Lobby */
 .particles span {
     position: fixed;
     bottom: -50px;
@@ -54,7 +52,6 @@ body {
     100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
 }
 
-/* BARRA LOBBY SUPERIORE */
 .fn-lobby-nav {
     width: 100%;
     max-width: 900px;
@@ -102,27 +99,6 @@ body {
     gap: 12px;
 }
 
-/* Pulsante Musica Lobby */
-.music-btn {
-    background: #1b0f2e;
-    border: 1px solid #362252;
-    color: #a395b8;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.75rem;
-    transition: all 0.2s ease;
-}
-
-.music-btn.playing {
-    background: #eff322;
-    color: #0f0818;
-    border-color: #eff322;
-    box-shadow: 0 0 10px rgba(239, 243, 34, 0.4);
-}
-
-/* Selettore Lingua */
 .lang-selector {
     display: flex;
     gap: 6px;
@@ -146,7 +122,6 @@ body {
     border-color: #eff322;
 }
 
-/* Container principale */
 .main-wrapper {
     display: flex;
     flex-direction: column;
@@ -157,7 +132,6 @@ body {
     z-index: 2;
 }
 
-/* Lama Animato a Destra */
 .side-decor {
     position: fixed;
     top: 50%;
@@ -180,19 +154,10 @@ body {
 }
 
 @keyframes slideInFromRight {
-    0% {
-        right: -300px;
-        opacity: 0;
-        transform: translateY(-50%) rotate(10deg);
-    }
-    100% {
-        right: 3%;
-        opacity: 0.9;
-        transform: translateY(-50%) rotate(0deg);
-    }
+    0% { right: -300px; opacity: 0; transform: translateY(-50%) rotate(10deg); }
+    100% { right: 3%; opacity: 0.9; transform: translateY(-50%) rotate(0deg); }
 }
 
-/* Welcome Screen */
 .welcome-screen {
     position: fixed;
     top: 0;
@@ -217,7 +182,6 @@ body {
     animation: pulse 1s infinite alternate;
 }
 
-/* CARD PRINCIPALE CON BORDO MITICO ANIMATO */
 .container {
     background: rgba(22, 12, 38, 0.92);
     backdrop-filter: blur(12px);
@@ -306,7 +270,6 @@ p {
 .rarity-purple input { border-left: 4px solid #a855f7 !important; }
 .rarity-blue input { border-left: 4px solid #3b82f6 !important; }
 
-/* Live Search Box */
 .search-results-box {
     background: #0f0818;
     border: 1px solid #362252;
@@ -419,7 +382,6 @@ h3 {
     text-shadow: 0 0 15px rgba(239, 243, 34, 0.4);
 }
 
-/* FAQ SEZIONE */
 .faq-container {
     background: rgba(22, 12, 38, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -462,7 +424,6 @@ h3 {
     display: block;
 }
 
-/* LEADERBOARD SEZIONE */
 .leaderboard-container {
     background: rgba(22, 12, 38, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.08);
