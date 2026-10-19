@@ -21,7 +21,7 @@ function toggleMusica() {
             btn.classList.add('playing');
             btn.innerText = "🎵 LOBBY OST: ON";
         }).catch(e => {
-            console.log("Riproduzione audio in attesa di interazione utente.");
+            console.log("In attesa di interazione");
         });
     } else {
         music.pause();
@@ -30,7 +30,7 @@ function toggleMusica() {
     }
 }
 
-// Sblocca la musica automaticamente al primo clic ovunque nella pagina
+// Sblocca e avvia la musica automaticamente al primissimo tocco/clic sulla pagina
 document.addEventListener('click', function() {
     let music = document.getElementById('bg-music');
     let btn = document.getElementById('music-toggle-btn');
