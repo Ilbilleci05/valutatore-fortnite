@@ -22,7 +22,7 @@
         
         <!-- CARD PRINCIPALE VALUTATORE -->
         <div class="container" id="main-content">
-            <h1>Valutatore <span>Fortnite</span></h1>
+            <h1>Valutatore <span>Fortnite Pro</span></h1>
 
             <!-- STEP 1: Caselle di Testo Obbligatorie -->
             <div id="step-login" class="step-section">
@@ -48,45 +48,70 @@
                 </button>
             </div>
 
-            <!-- STEP 2: Calcolatore (Nascosto all'inizio) -->
+            <!-- STEP 2: Calcolatore Avanzato (Nascosto all'inizio) -->
             <div id="step-calculator" class="step-section hidden">
                 <form id="calculator-form">
+                    
+                    <!-- Dettaglio Skin per Rarità -->
+                    <h3>1. Conteggio Skin per Rarità</h3>
                     <div class="input-group">
-                        <label for="skins">Numero totale di Skin:</label>
-                        <input type="number" id="skins" min="0" value="0">
+                        <label for="skins_legendary">Skin Leggendarie (Gialle):</label>
+                        <input type="number" id="skins_legendary" min="0" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="skins_epic">Skin Epiche (Viola):</label>
+                        <input type="number" id="skins_epic" min="0" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="skins_rare">Skin Rare / Non Comuni (Blu/Verdi):</label>
+                        <input type="number" id="skins_rare" min="0" value="0">
                     </div>
 
+                    <!-- Pass Battaglia e V-Bucks -->
+                    <h3>2. Pass & Risorse</h3>
                     <div class="input-group">
-                        <label for="vbucks">V-Bucks presenti nell'account:</label>
+                        <label for="battle_passes">Pass Battaglia Completati al 100%:</label>
+                        <input type="number" id="battle_passes" min="0" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="vbucks">V-Bucks Attuali nell'Account:</label>
                         <input type="number" id="vbucks" min="0" value="0" step="50">
                     </div>
 
-                    <h3>Skin Rare / OG possedute:</h3>
+                    <!-- Extra Esclusivi -->
+                    <h3>3. Status & Edizione Salva il Mondo</h3>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" id="renegade" value="300"> Renegade Raider (+300€)</label>
-                        <label><input type="checkbox" id="blacknight" value="80"> Black Knight (+80€)</label>
-                        <label><input type="checkbox" id="galaxy" value="50"> Galaxy (+50€)</label>
-                        <label><input type="checkbox" id="ikonik" value="40"> IKONIK (+40€)</label>
-                        <label><input type="checkbox" id="travis" value="30"> Travis Scott (+30€)</label>
+                        <label><input type="checkbox" id="stw_founder"> Salva il Mondo FONDATORE (Genera V-Bucks)</label>
+                        <label><input type="checkbox" id="mako_glider"> Deltaplano OG Mako (Stagione 1)</label>
                     </div>
 
-                    <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore</button>
+                    <!-- Skin & Emote OG / Esclusive -->
+                    <h3>4. Skin & Emote OG / Esclusive Possedute</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="renegade"> Renegade Raider (+350€)</label>
+                        <label><input type="checkbox" id="blacknight"> Black Knight (+90€)</label>
+                        <label><input type="checkbox" id="galaxy"> Galaxy (+60€)</label>
+                        <label><input type="checkbox" id="ikonik"> IKONIK (+45€)</label>
+                        <label><input type="checkbox" id="travis"> Travis Scott (+35€)</label>
+                        <label><input type="checkbox" id="floss"> Emote Floss / Take the L (+25€)</label>
+                    </div>
+
+                    <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore Preciso</button>
                 </form>
 
                 <div id="result-box" class="result-box">
                     <h2>Valore Stimato dell'Account</h2>
-                    <p id="total-value">0 €</p>
+                    <p id="total-value">0,00 €</p>
                 </div>
             </div>
         </div>
 
-        <!-- SEZIONE CLASSIFICA / LEADERBOARD (FNLOCKER STYLE) -->
+        <!-- SEZIONE CLASSIFICA / LEADERBOARD -->
         <div class="leaderboard-container">
             <h2 class="leaderboard-title">🏆 Top Account Valutati Recenti</h2>
 
             <!-- PODIO TOP 3 -->
             <div class="podium">
-                <!-- #1 Posto -->
                 <div class="podium-card gold">
                     <div class="rank">#1</div>
                     <div class="player-info">
@@ -103,12 +128,11 @@
                         </div>
                         <div class="stat-item right">
                             <span class="lbl">EST. VALUE</span>
-                            <span class="val-price">5.703,400 €</span>
+                            <span class="val-price">5.703,40 €</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- #2 Posto -->
                 <div class="podium-card silver">
                     <div class="rank">#2</div>
                     <div class="player-info">
@@ -125,12 +149,11 @@
                         </div>
                         <div class="stat-item right">
                             <span class="lbl">EST. VALUE</span>
-                            <span class="val-price">5.690,100 €</span>
+                            <span class="val-price">5.690,10 €</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- #3 Posto -->
                 <div class="podium-card bronze">
                     <div class="rank">#3</div>
                     <div class="player-info">
@@ -147,7 +170,7 @@
                         </div>
                         <div class="stat-item right">
                             <span class="lbl">EST. VALUE</span>
-                            <span class="val-price">5.134,900 €</span>
+                            <span class="val-price">5.134,90 €</span>
                         </div>
                     </div>
                 </div>
@@ -172,7 +195,7 @@
                         </div>
                     </div>
                     <span class="items-count">14,655</span>
-                    <span class="est-value">4.455,500 €</span>
+                    <span class="est-value">4.455,50 €</span>
                 </div>
 
                 <div class="table-row">
@@ -185,7 +208,7 @@
                         </div>
                     </div>
                     <span class="items-count">11,535</span>
-                    <span class="est-value">4.440,450 €</span>
+                    <span class="est-value">4.440,45 €</span>
                 </div>
 
                 <div class="table-row">
@@ -198,7 +221,7 @@
                         </div>
                     </div>
                     <span class="items-count">13,327</span>
-                    <span class="est-value">4.295,000 €</span>
+                    <span class="est-value">4.295,00 €</span>
                 </div>
 
                 <div class="table-row">
@@ -211,7 +234,7 @@
                         </div>
                     </div>
                     <span class="items-count">13,744</span>
-                    <span class="est-value">4.137,900 €</span>
+                    <span class="est-value">4.137,90 €</span>
                 </div>
             </div>
         </div>
