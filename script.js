@@ -7,6 +7,26 @@ function playClickSound() {
     }
 }
 
+// Controllo e Attivazione Musica Lobby OG
+function toggleMusica() {
+    playClickSound();
+    let music = document.getElementById('bg-music');
+    let btn = document.getElementById('music-toggle-btn');
+    
+    if (music.paused) {
+        music.play().then(() => {
+            btn.classList.add('playing');
+            btn.innerText = "🎵 LOBBY OST: ON";
+        }).catch(e => {
+            alert("Per favore, interagisci prima con la pagina per attivare la musica!");
+        });
+    } else {
+        music.pause();
+        btn.classList.remove('playing');
+        btn.innerText = "🎵 LOBBY OST: OFF";
+    }
+}
+
 // Gestione dei tab della Lobby superiore (LOCKER, SHOP, BATTLE PASS)
 function navigaLobby(tabName) {
     playClickSound();
