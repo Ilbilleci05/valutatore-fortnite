@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Sfondo Tempesta Animato */
+/* Sfondo Animato Tempesta */
 .storm-background {
     position: fixed;
     top: 0;
@@ -131,7 +131,7 @@ body {
     z-index: 2;
 }
 
-/* Decorazioni Laterali */
+/* Lama Animato a Destra */
 .side-decor {
     position: fixed;
     top: 50%;
@@ -141,19 +141,29 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.25;
+    opacity: 0.85;
     pointer-events: none;
     z-index: 1;
 }
 
-.left-decor {
-    left: 2%;
-    background-image: url('https://fortnite-api.com/images/cosmetics/featured/cid_703_athena_commando_m_nanosuit_e_b82a7f/icon.png');
+.right-decor {
+    right: -300px;
+    background-image: url('https://fortnite-api.com/images/cosmetics/br/bannertokens/llama/icon.png');
+    animation: slideInFromRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.2s;
 }
 
-.right-decor {
-    right: 2%;
-    background-image: url('https://fortnite-api.com/images/cosmetics/br/cid_555_athena_commando_f_streetfashionsummer_q00tp/icon.png');
+@keyframes slideInFromRight {
+    0% {
+        right: -300px;
+        opacity: 0;
+        transform: translateY(-50%) rotate(10deg);
+    }
+    100% {
+        right: 3%;
+        opacity: 0.9;
+        transform: translateY(-50%) rotate(0deg);
+    }
 }
 
 /* Welcome Screen */
@@ -266,7 +276,6 @@ p {
     box-shadow: 0 0 12px rgba(239, 243, 34, 0.4);
 }
 
-/* Bordi colori rarità per i campi skin */
 .rarity-gold input { border-left: 4px solid #ffb703 !important; }
 .rarity-purple input { border-left: 4px solid #a855f7 !important; }
 .rarity-blue input { border-left: 4px solid #3b82f6 !important; }
