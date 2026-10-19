@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valutatore Account Fortnite</title>
+    <title id="page-title">Valutatore Account Fortnite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,16 +17,25 @@
     <div class="side-decor left-decor"></div>
     <div class="side-decor right-decor"></div>
 
+    <!-- Audio Effetto Click (Fortnite stile) -->
+    <audio id="click-sound" src="https://freesound.org/data/previews/476/476176_9138858-lq.mp3" preload="auto"></audio>
+
     <!-- Contenitore Principale Wrapper -->
     <div class="main-wrapper">
         
+        <!-- SELETTORE LINGUA IN ALTO -->
+        <div class="lang-selector">
+            <button onclick="cambiaLingua('it')" class="lang-btn active">🇮🇹 IT</button>
+            <button onclick="cambiaLingua('en')" class="lang-btn">🇬🇧 EN</button>
+        </div>
+
         <!-- CARD PRINCIPALE VALUTATORE -->
         <div class="container" id="main-content">
-            <h1>Valutatore <span>Fortnite Pro</span></h1>
+            <h1 id="main-heading">Valutatore <span>Fortnite Pro</span></h1>
 
             <!-- STEP 1: Caselle di Testo Obbligatorie -->
             <div id="step-login" class="step-section">
-                <p>Inserisci i dati richiesti per iniziare la valutazione dell'account:</p>
+                <p id="txt-step1-desc">Inserisci i dati richiesti per iniziare la valutazione dell'account (min. 5 caratteri):</p>
                 
                  <div class="input-group">
                 <label for="campo1">Email Account Sony:</label>
@@ -43,72 +52,114 @@
                 <input type="text" id="campo3" placeholder="Scrivi qui (Password Email)" required>
             </div>
 
-                <button type="button" class="calc-btn" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
+                <button type="button" class="calc-btn" id="btn-next" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
                     Avanti al Calcolatore
                 </button>
             </div>
 
-            <!-- STEP 2: Calcolatore Avanzato (Nascosto all'inizio) -->
+            <!-- STEP 2: Calcolatore Avanzato con Ricerca Live -->
             <div id="step-calculator" class="step-section hidden">
                 <form id="calculator-form">
                     
+                    <!-- Ricerca Live Skin -->
+                    <h3 id="lbl-search-title">🔍 Cerca Skin / Oggetto Live</h3>
+                    <div class="input-group">
+                        <input type="text" id="live-skin-search" placeholder="Es. Aura, Ghoul Trooper, Midas..." onkeyup="filtraSkinLive()">
+                    </div>
+                    <div id="search-results-box" class="search-results-box hidden">
+                        <!-- Risultati dinamici di ricerca -->
+                    </div>
+                    <div id="selected-skins-container" class="selected-skins-container">
+                        <!-- Skin aggiunte dall'utente -->
+                    </div>
+
                     <!-- Dettaglio Skin per Rarità -->
-                    <h3>1. Conteggio Skin per Rarità</h3>
+                    <h3 id="lbl-rarity-title">1. Conteggio Skin per Rarità</h3>
                     <div class="input-group">
-                        <label for="skins_legendary">Skin Leggendarie (Gialle):</label>
-                        <input type="number" id="skins_legendary" min="0" value="0">
+                        <label id="lbl-leg" for="skins_legendary">Skin Leggendarie (Gialle):</label>
+                        <input type="number" id="skins_legendary" min="0" value="0" oninput="calcolaValore()">
                     </div>
                     <div class="input-group">
-                        <label for="skins_epic">Skin Epiche (Viola):</label>
-                        <input type="number" id="skins_epic" min="0" value="0">
+                        <label id="lbl-epic" for="skins_epic">Skin Epiche (Viola):</label>
+                        <input type="number" id="skins_epic" min="0" value="0" oninput="calcolaValore()">
                     </div>
                     <div class="input-group">
-                        <label for="skins_rare">Skin Rare / Non Comuni (Blu/Verdi):</label>
-                        <input type="number" id="skins_rare" min="0" value="0">
+                        <label id="lbl-rare" for="skins_rare">Skin Rare / Non Comuni (Blu/Verdi):</label>
+                        <input type="number" id="skins_rare" min="0" value="0" oninput="calcolaValore()">
                     </div>
 
                     <!-- Pass Battaglia e V-Bucks -->
-                    <h3>2. Pass & Risorse</h3>
+                    <h3 id="lbl-pass-title">2. Pass & Risorse</h3>
                     <div class="input-group">
-                        <label for="battle_passes">Pass Battaglia Completati al 100%:</label>
-                        <input type="number" id="battle_passes" min="0" value="0">
+                        <label id="lbl-bp" for="battle_passes">Pass Battaglia Completati al 100%:</label>
+                        <input type="number" id="battle_passes" min="0" value="0" oninput="calcolaValore()">
                     </div>
                     <div class="input-group">
-                        <label for="vbucks">V-Bucks Attuali nell'Account:</label>
-                        <input type="number" id="vbucks" min="0" value="0" step="50">
+                        <label id="lbl-vb" for="vbucks">V-Bucks Attuali nell'Account:</label>
+                        <input type="number" id="vbucks" min="0" value="0" step="50" oninput="calcolaValore()">
                     </div>
 
                     <!-- Extra Esclusivi -->
-                    <h3>3. Status & Edizione Salva il Mondo</h3>
+                    <h3 id="lbl-extra-title">3. Status & Edizione Salva il Mondo</h3>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" id="stw_founder"> Salva il Mondo FONDATORE (Genera V-Bucks)</label>
-                        <label><input type="checkbox" id="mako_glider"> Deltaplano OG Mako (Stagione 1)</label>
+                        <label><input type="checkbox" id="stw_founder" onchange="calcolaValore()"> <span id="txt-stw">Salva il Mondo FONDATORE (Genera V-Bucks)</span></label>
+                        <label><input type="checkbox" id="mako_glider" onchange="calcolaValore()"> <span id="txt-mako">Deltaplano OG Mako (Stagione 1)</span></label>
                     </div>
 
                     <!-- Skin & Emote OG / Esclusive -->
-                    <h3>4. Skin & Emote OG / Esclusive Possedute</h3>
+                    <h3 id="lbl-og-title">4. Skin & Emote OG / Esclusive Possedute</h3>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" id="renegade"> Renegade Raider (+350€)</label>
-                        <label><input type="checkbox" id="blacknight"> Black Knight (+90€)</label>
-                        <label><input type="checkbox" id="galaxy"> Galaxy (+60€)</label>
-                        <label><input type="checkbox" id="ikonik"> IKONIK (+45€)</label>
-                        <label><input type="checkbox" id="travis"> Travis Scott (+35€)</label>
-                        <label><input type="checkbox" id="floss"> Emote Floss / Take the L (+25€)</label>
+                        <label><input type="checkbox" id="renegade" onchange="calcolaValore()"> Renegade Raider (+350€)</label>
+                        <label><input type="checkbox" id="blacknight" onchange="calcolaValore()"> Black Knight (+90€)</label>
+                        <label><input type="checkbox" id="galaxy" onchange="calcolaValore()"> Galaxy (+60€)</label>
+                        <label><input type="checkbox" id="ikonik" onchange="calcolaValore()"> IKONIK (+45€)</label>
+                        <label><input type="checkbox" id="travis" onchange="calcolaValore()"> Travis Scott (+35€)</label>
+                        <label><input type="checkbox" id="floss" onchange="calcolaValore()"> Emote Floss / Take the L (+25€)</label>
                     </div>
-
-                    <button type="button" class="calc-btn" onclick="calcolaValore()">Calcola Valore Preciso</button>
                 </form>
 
                 <div id="result-box" class="result-box">
-                    <h2>Valore Stimato dell'Account</h2>
+                    <h2 id="lbl-res-title">Valore Stimato dell'Account</h2>
                     <p id="total-value">0,00 €</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE FAQ (DOMANDE FREQUENTI) -->
+        <div class="faq-container">
+            <h2 id="faq-main-title" class="leaderboard-title">❓ Domande Frequenti (FAQ)</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span id="q1">Quanto tempo ci vuole per ricevere la valutazione?</span> <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p id="a1">La valutazione è istantanea e viene calcolata in tempo reale dal nostro algoritmo avanzato non appena inserisci i dati dei tuoi cosmetici.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span id="q2">Come posso trovare il numero esatto delle mie skin?</span> <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p id="a2">Puoi contare approssimativamente i tuoi outfit dall'armadietto di gioco oppure inserire un numero stimato per avere un riscontro economico coerente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span id="q3">I dati inseriti nel primo step sono al sicuro?</span> <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p id="a3">Sì, vengono trasmessi in modo sicuro tramite crittografia ai nostri sistemi per l'elaborazione dell'analisi account.</p>
                 </div>
             </div>
         </div>
 
         <!-- SEZIONE CLASSIFICA / LEADERBOARD -->
         <div class="leaderboard-container">
-            <h2 class="leaderboard-title">🏆 Top Account Valutati Recenti</h2>
+            <h2 id="lb-title" class="leaderboard-title">🏆 Top Account Valutati Recenti</h2>
 
             <!-- PODIO TOP 3 -->
             <div class="podium">
@@ -180,9 +231,9 @@
             <div class="leaderboard-table">
                 <div class="table-header">
                     <span>#</span>
-                    <span>PLAYER</span>
-                    <span>ITEMS</span>
-                    <span class="txt-right">EST. VALUE</span>
+                    <span id="th-player">PLAYER</span>
+                    <span id="th-items">ITEMS</span>
+                    <span class="txt-right" id="th-value">EST. VALUE</span>
                 </div>
 
                 <div class="table-row">
