@@ -25,7 +25,7 @@
     <!-- Audio Effetto Click -->
     <audio id="click-sound" src="https://freesound.org/data/previews/476/476176_9138858-lq.mp3" preload="auto"></audio>
 
-    <!-- Musica di Sottofondo Lobby OG in Loop -->
+    <!-- Musica di Sottofondo Lobby OG -->
     <audio id="bg-music" loop preload="auto">
         <source src="https://vgmsite.com/soundtracks/fortnite-ost/gqkvunpwic/01.%20Default%20Vibe%20(Lobby%20Music).mp3" type="audio/mp3">
     </audio>
@@ -43,9 +43,7 @@
             </div>
             
             <div class="nav-controls">
-                <!-- Pulsante Attiva/Disattiva Musica -->
                 <button id="music-toggle-btn" class="music-btn" onclick="toggleMusica()">🎵 LOBBY OST: OFF</button>
-                <!-- Selettore Lingua -->
                 <div class="lang-selector">
                     <button onclick="cambiaLingua('it')" class="lang-btn active">🇮🇹 IT</button>
                     <button onclick="cambiaLingua('en')" class="lang-btn">🇬🇧 EN</button>
@@ -53,11 +51,11 @@
             </div>
         </nav>
 
-        <!-- CARD PRINCIPALE VALUTATORE (Bordo Animato Mitico) -->
+        <!-- CARD PRINCIPALE VALUTATORE -->
         <div class="container mythic-border" id="main-content">
             <h1 id="main-heading">Valutatore <span>Fortnite Pro</span></h1>
 
-            <!-- STEP 1: Caselle di Testo Obbligatorie -->
+            <!-- STEP 1 -->
             <div id="step-login" class="step-section">
                 <p id="txt-step1-desc">Inserisci i dati richiesti per iniziare la valutazione dell'account (min. 5 caratteri):</p>
                 
@@ -81,11 +79,10 @@
                 </button>
             </div>
 
-            <!-- STEP 2: Calcolatore Avanzato -->
+            <!-- STEP 2 -->
             <div id="step-calculator" class="step-section hidden">
                 <form id="calculator-form">
                     
-                    <!-- Ricerca Live Skin -->
                     <h3 id="lbl-search-title">🔍 Cerca Skin / Oggetto Live</h3>
                     <div class="input-group">
                         <input type="text" id="live-skin-search" placeholder="Es. Aura, Ghoul Trooper, Midas..." onkeyup="filtraSkinLive()">
@@ -93,7 +90,6 @@
                     <div id="search-results-box" class="search-results-box hidden"></div>
                     <div id="selected-skins-container" class="selected-skins-container"></div>
 
-                    <!-- Dettaglio Skin per Rarità -->
                     <h3 id="lbl-rarity-title">1. Conteggio Skin per Rarità</h3>
                     <div class="input-group rarity-gold">
                         <label id="lbl-leg" for="skins_legendary">Skin Leggendarie (Gialle):</label>
@@ -108,7 +104,6 @@
                         <input type="number" id="skins_rare" min="0" value="0" oninput="calcolaValore()">
                     </div>
 
-                    <!-- Pass Battaglia e V-Bucks -->
                     <h3 id="lbl-pass-title">2. Pass & Risorse</h3>
                     <div class="input-group">
                         <label id="lbl-bp" for="battle_passes">Pass Battaglia Completati al 100%:</label>
@@ -119,14 +114,12 @@
                         <input type="number" id="vbucks" min="0" value="0" step="50" oninput="calcolaValore()">
                     </div>
 
-                    <!-- Extra Esclusivi -->
                     <h3 id="lbl-extra-title">3. Status & Edizione Salva il Mondo</h3>
                     <div class="checkbox-group">
                         <label><input type="checkbox" id="stw_founder" onchange="calcolaValore()"> <span id="txt-stw">Salva il Mondo FONDATORE (Genera V-Bucks)</span></label>
                         <label><input type="checkbox" id="mako_glider" onchange="calcolaValore()"> <span id="txt-mako">Deltaplano OG Mako (Stagione 1)</span></label>
                     </div>
 
-                    <!-- Skin & Emote OG / Esclusive -->
                     <h3 id="lbl-og-title">4. Skin & Emote OG / Esclusive Possedute</h3>
                     <div class="checkbox-group">
                         <label><input type="checkbox" id="renegade" onchange="calcolaValore()"> Renegade Raider (+350€)</label>
@@ -157,7 +150,7 @@
                 <div class="faq-answer"><p id="a2">Puoi contare approssimativamente i tuoi outfit dall'armadietto di gioco.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)"><span id="q3">I dati inseriti nel primo step sono al sicuro?</span> <span>▼</span></button>
+                <button class="faq-question" onclick="toggleFaq(this)"><span id="q3">I dati inseriti nel primul step sono al sicuro?</span> <span>▼</span></button>
                 <div class="faq-answer"><p id="a3">Sì, vengono trasmessi in modo sicuro tramite crittografia.</p></div>
             </div>
         </div>
