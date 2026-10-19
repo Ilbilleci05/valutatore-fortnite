@@ -96,6 +96,32 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Pulsante Musica Lobby */
+.music-btn {
+    background: #1b0f2e;
+    border: 1px solid #362252;
+    color: #a395b8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.music-btn.playing {
+    background: #eff322;
+    color: #0f0818;
+    border-color: #eff322;
+    box-shadow: 0 0 10px rgba(239, 243, 34, 0.4);
+}
+
 /* Selettore Lingua */
 .lang-selector {
     display: flex;
@@ -106,7 +132,7 @@ body {
     background: #1b0f2e;
     border: 1px solid #362252;
     color: #a395b8;
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
@@ -614,7 +640,7 @@ h3 {
     .side-decor { display: none; }
     .table-header, .table-row { grid-template-columns: 30px 1fr 100px; }
     .items-count { display: none; }
-    .fn-lobby-nav { padding: 10px 15px; }
+    .fn-lobby-nav { padding: 10px 15px; flex-direction: column; gap: 10px; }
     .nav-links { display: none; }
 }
 
