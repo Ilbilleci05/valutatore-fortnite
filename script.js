@@ -40,11 +40,9 @@ document.addEventListener('click', function() {
             musicaAvviata = true;
             btn.classList.add('playing');
             btn.innerText = "🎵 LOBBY OST: ON";
-        }).catch(e => {
-            // Ignora eventuali blocchi silenziosamente
-        });
+        }).catch(e => {});
     }
-}, { once: true }); // Si attiva solo al primo clic iniziale
+}, { once: true });
 
 // Gestione dei tab della Lobby superiore (LOCKER, SHOP, BATTLE PASS)
 function navigaLobby(tabName) {
