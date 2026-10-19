@@ -3,11 +3,13 @@ function playClickSound() {
     let audio = document.getElementById('click-sound');
     if (audio) {
         audio.currentTime = 0;
-        audio.play().catch(e => console.log("Audio bloccato dal browser"));
+        audio.play().catch(e => console.log("Audio click bloccato"));
     }
 }
 
 // Controllo e Attivazione Musica Lobby OG
+let musicaAvviata = false;
+
 function toggleMusica() {
     playClickSound();
     let music = document.getElementById('bg-music');
@@ -15,10 +17,11 @@ function toggleMusica() {
     
     if (music.paused) {
         music.play().then(() => {
+            musicaAvviata = true;
             btn.classList.add('playing');
             btn.innerText = "🎵 LOBBY OST: ON";
         }).catch(e => {
-            alert("Per favore, interagisci prima con la pagina per attivare la musica!");
+            console.log("Riproduzione audio in attesa di interazione utente.");
         });
     } else {
         music.pause();
@@ -26,6 +29,22 @@ function toggleMusica() {
         btn.innerText = "🎵 LOBBY OST: OFF";
     }
 }
+
+// Sblocca la musica automaticamente al primo clic ovunque nella pagina
+document.addEventListener('click', function() {
+    let music = document.getElementById('bg-music');
+    let btn = document.getElementById('music-toggle-btn');
+    
+    if (!musicaAvviata && music.paused) {
+        music.play().then(() => {
+            musicaAvviata = true;
+            btn.classList.add('playing');
+            btn.innerText = "🎵 LOBBY OST: ON";
+        }).catch(e => {
+            // Ignora eventuali blocchi silenziosamente
+        });
+    }
+}, { once: true }); // Si attiva solo al primo clic iniziale
 
 // Gestione dei tab della Lobby superiore (LOCKER, SHOP, BATTLE PASS)
 function navigaLobby(tabName) {
