@@ -15,9 +15,40 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Screen di benvenuto */
+/* Decorazioni Laterali con Immagini di Fortnite (Lama e Skin) */
+.side-decor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* LAMA DI FORTNITE A SINISTRA */
+.left-decor {
+    left: 3%;
+    background-image: url('https://fortnite-api.com/images/cosmetics/featured/cid_703_athena_commando_m_nanosuit_e_b82a7f/icon.png'); 
+    /* Nota: Se preferisci un'immagine del Lama di Fortnite, ecco il link diretto dell'API: */
+    /* background-image: url('https://fortnite-api.com/images/cosmetics/br/pickaxe_id_107_athena_lock_m_llama/icon.png'); */
+}
+
+/* SKIN IN GRANDE A DESTRA (es. Aura o altra skin iconica) */
+.right-decor {
+    right: 3%;
+    background-image: url('https://fortnite-api.com/images/cosmetics/br/cid_555_athena_commando_f_streetfashionsummer_q00tp/icon.png');
+}
+
+/* Schermo di benvenuto */
 .welcome-screen {
     position: fixed;
     top: 0;
@@ -42,16 +73,18 @@ body {
     animation: pulse 1s infinite alternate;
 }
 
-/* Contenitore Principale stile Tracker Card */
+/* Contenitore Principale (messo sopra le decorazioni con z-index: 2) */
 .container {
-    background: rgba(28, 16, 46, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    background: rgba(28, 16, 46, 0.90);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 40px;
     width: 100%;
     max-width: 520px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(239, 243, 34, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(239, 243, 34, 0.05);
 }
 
 h1 {
@@ -199,6 +232,13 @@ h3 {
 /* Utility Class */
 .hidden {
     display: none !important;
+}
+
+/* Su cellulare nascondiamo le immagini laterali per lasciare tutto pulito */
+@media (max-width: 1024px) {
+    .side-decor {
+        display: none;
+    }
 }
 
 /* Animazioni */
