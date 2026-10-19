@@ -252,4 +252,4 @@ function cambiaLingua(lang) {
         document.getElementById('th-items').innerText = "ITEMS";
         document.getElementById('th-value').innerText = "EST. VALUE";
     }
-} 
+}
