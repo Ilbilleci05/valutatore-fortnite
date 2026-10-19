@@ -11,12 +11,10 @@ function playClickSound() {
 function navigaLobby(tabName) {
     playClickSound();
     
-    // Rimuovi la classe active da tutti i tab
     document.querySelectorAll('.nav-links span').forEach(el => el.classList.remove('active-tab'));
     
     if (tabName === 'locker') {
         event.target.classList.add('active-tab');
-        // Riporta alla schermata di valutazione principale
         document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
     } else if (tabName === 'shop') {
         event.target.classList.add('active-tab');
