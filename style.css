@@ -226,9 +226,11 @@ p {
     margin-bottom: 8px;
 }
 
-/* CORRETTO: Forzato lo sfondo scuro e il testo bianco per tutti i campi di input */
+/* FORZATURA ASSOLUTA PER RENDERE TUTTI I CAMPI NERI COME LE ALTRE SEZIONI */
 .input-group input[type="text"],
-.input-group input[type="number"] {
+.input-group input[type="number"],
+input {
+    background-color: #0f0818 !important;
     background: #0f0818 !important;
     border: 1px solid #362252 !important;
     border-radius: 8px;
@@ -236,15 +238,29 @@ p {
     color: #ffffff !important;
     font-size: 1rem;
     outline: none;
+    -webkit-appearance: none;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="number"]:focus,
+input:focus {
+    background-color: #0f0818 !important;
+    background: #0f0818 !important;
+    color: #ffffff !important;
+    border-color: #eff322 !important;
+    box-shadow: 0 0 12px rgba(239, 243, 34, 0.4);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f0818 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .input-group input::placeholder {
     color: #72608a !important;
-}
-
-.input-group input:focus {
-    border-color: #eff322 !important;
-    box-shadow: 0 0 12px rgba(239, 243, 34, 0.4);
 }
 
 .rarity-gold input { border-left: 4px solid #ffb703 !important; }
