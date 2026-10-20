@@ -59,7 +59,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     z-index: 2;
 }
 
@@ -92,7 +92,7 @@ body {
     background: rgba(22, 12, 38, 0.95);
     backdrop-filter: blur(12px);
     border-radius: 16px;
-    padding: 45px 35px;
+    padding: 45px 30px;
     width: 100%;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(239, 243, 34, 0.08);
@@ -143,7 +143,7 @@ h1 span {
 
 p {
     color: #a395b8;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 25px;
 }
