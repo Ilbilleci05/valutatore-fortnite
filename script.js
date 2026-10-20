@@ -1,2 +1,2 @@
-// Script di manutenzione caricato correttamente
-console.log("Sito in manutenzione: Work in Progress attivo.");
+// Modalità manutenzione attiva
+console.log("Pagina in manutenzione.");
