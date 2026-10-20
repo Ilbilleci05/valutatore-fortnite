@@ -226,19 +226,24 @@ p {
     margin-bottom: 8px;
 }
 
+/* CORRETTO: Forzato lo sfondo scuro e il testo bianco per tutti i campi di input */
 .input-group input[type="text"],
 .input-group input[type="number"] {
-    background: #0f0818;
-    border: 1px solid #362252;
+    background: #0f0818 !important;
+    border: 1px solid #362252 !important;
     border-radius: 8px;
     padding: 12px 16px;
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 1rem;
     outline: none;
 }
 
+.input-group input::placeholder {
+    color: #72608a !important;
+}
+
 .input-group input:focus {
-    border-color: #eff322;
+    border-color: #eff322 !important;
     box-shadow: 0 0 12px rgba(239, 243, 34, 0.4);
 }
 
