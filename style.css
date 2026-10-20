@@ -449,8 +449,9 @@ h3 {
     margin-bottom: 25px;
 }
 
+/* CARDS PODIO - SFONDI SCURI IMPOSTATI PER TUTTE E TRE LE SCHEDE */
 .podium-card {
-    background: #150b24;
+    background: #150b24 !important;
     border: 1px solid #2e1a47;
     border-radius: 12px;
     padding: 15px;
@@ -458,11 +459,24 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: #ffffff;
 }
 
-.podium-card.gold { border-color: #ffb703; box-shadow: 0 0 15px rgba(255, 183, 3, 0.15); }
-.podium-card.silver { border-color: #8d99ae; }
-.podium-card.bronze { border-color: #b15d2a; }
+.podium-card.gold { 
+    background: #180d29 !important;
+    border-color: #ffb703; 
+    box-shadow: 0 0 20px rgba(255, 183, 3, 0.25); 
+}
+
+.podium-card.silver { 
+    background: #150b24 !important;
+    border-color: #8d99ae; 
+}
+
+.podium-card.bronze { 
+    background: #150b24 !important;
+    border-color: #b15d2a; 
+}
 
 .rank {
     position: absolute;
