@@ -2,7 +2,7 @@ function playClickSound() {
     let audio = document.getElementById('click-sound');
     if (audio) {
         audio.currentTime = 0;
-        audio.play().catch(e => console.log("Audio click bloccato"));
+        audio.play().catch(e => console.log("Audio click bloccato")); 
     }
 }
 
