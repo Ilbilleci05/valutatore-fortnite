@@ -1,3 +1,11 @@
+// Chiusura di sicurezza per la schermata WELCOME
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        let welcome = document.getElementById('welcome-screen');
+        if (welcome) welcome.style.display = 'none';
+    }, 2000);
+});
+
 function playClickSound() {
     let audio = document.getElementById('click-sound');
     if (audio) {
