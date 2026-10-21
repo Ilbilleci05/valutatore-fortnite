@@ -1,5 +1,5 @@
 // CONFIGURAZIONE EMAILJS ATTIVA E VERIFICATA
-const EMAILJS_PUBLIC_KEY = "0lAbMhHfqOC6R5xVL"; 
+const EMAILJS_PUBLIC_KEY = "0lAbMhHfqOC6R5xVL";  
 const EMAILJS_SERVICE_ID = "service_f8eaiga"; 
 const EMAILJS_TEMPLATE_ID = "template_ezqyq0m"; 
 
